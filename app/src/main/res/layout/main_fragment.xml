@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.xinshiyun.mvvmstudydemo.ui.main.MainViewModel"/>
+
+        <import type="com.xinshiyun.mvvmstudydemo.ui.main.Student"/>
+
+        <import type="com.xinshiyun.mvvmstudydemo.ui.main.MyFragment.Listener"/>
+
+        <variable
+            name="fragmentVModel"
+            type="MainViewModel" />
+
+
+        <variable
+            name="student"
+            type="Student" />
+
+        <variable
+            name="listener"
+            type="Listener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F57CBD"
+        tools:context=".ui.main.MyFragment">
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{fragmentVModel.address,default =test}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/observable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{student.name+student.age,default =test}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/message"
+            />
+
+        <Button
+            android:id="@+id/tv_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点我开始"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <Button
+            android:id="@+id/tvChangeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改变名字"
+            android:textSize="20sp"
+            android:onClick="@{()->listener.changeName()}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_start"
+            />
+
+        <Button
+            android:id="@+id/tvChangeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改变所有"
+            android:textSize="20sp"
+            android:onClick="@{()->listener.changeAllInfo()}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_start"
+            />
+
+
+        <Button
+            android:id="@+id/btnFragmentTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试"
+            android:textSize="20sp"
+            android:onClick="@{()-> fragmentVModel.onNoParamClick()}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvChangeName"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
