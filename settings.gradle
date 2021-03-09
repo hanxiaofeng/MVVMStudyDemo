@@ -1,0 +1,4 @@
+include ':mvvmblog'
+include ':focusdemo'
+include ':app'
+rootProject.name = "MVVMStudyDemo"
