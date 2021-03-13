@@ -19,6 +19,4 @@ class ImageLoader {
             Glide.with(imageView).load(url).into(imageView)
         }
     }
-
-
 }

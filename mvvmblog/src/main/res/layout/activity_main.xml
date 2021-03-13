@@ -25,7 +25,7 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:myText="@{viewModel.userName}"
+            android:myText="@{viewModel.studentLiveData.name}"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:paddingLeft="@{viewModel.paddingLeft}"

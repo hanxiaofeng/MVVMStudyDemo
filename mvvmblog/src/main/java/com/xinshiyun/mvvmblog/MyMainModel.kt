@@ -3,10 +3,12 @@ package com.xinshiyun.mvvmblog
 import android.util.Log
 import android.view.View
 import androidx.databinding.BindingConversion
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MyMainModel : ViewModel() {
 
+    val studentLiveData = MutableLiveData<Student>()
 
     var userName = "张三"
 
