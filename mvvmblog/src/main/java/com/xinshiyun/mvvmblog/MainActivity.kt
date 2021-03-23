@@ -35,6 +35,26 @@ class MainActivity : AppCompatActivity(), CoroutineScope by MainScope() {
 
         initView()
 
+
+        launch {
+
+            var request1 = async {
+                Log.e("launch", "------async 1")
+                delay(3000)
+                1
+            }
+
+            var request2 = async {
+                Log.e("launch", "------async 2")
+                delay(3000)
+                2
+            }
+
+            val result1 = request1.await();
+            val result2 = request2.await();
+            Log.e("launch", "over : ------result1:$result1,result2:$result2")
+        }
+
     }
 
     private fun loadData() {
